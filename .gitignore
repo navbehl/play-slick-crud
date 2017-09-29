@@ -1,0 +1,43 @@
+logs
+target
+/.idea
+/.idea_modules
+/.classpath
+/.project
+/.settings
+/RUNNING_PID
+
+/.g8
+
+*.class
+*.log
+
+# sbt specific
+.history
+.lib/
+dist/*
+target/
+lib_managed/
+src_managed/
+project/boot/
+project/plugins/project/
+
+# ENSIME specific
+.ensime_cache/
+.ensime
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# -*- mode: gitignore; -*-
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+app-2.12/
