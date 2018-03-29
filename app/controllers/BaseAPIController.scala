@@ -14,6 +14,9 @@ import slick.jdbc.PostgresProfile._
 import scala.concurrent.Future
 import scala.util.control.NonFatal
 
+/**
+  Base controller
+  **/
 abstract class BaseAPIController[EntityService <: BaseService[EntityDao, EntityItem, IdType], EntityDao <: BaseDAO[_ <: BaseTable[EntityItem, IdType] with IdentifiableTable[IdType], EntityItem, IdType], EntityItem <: BaseConfig[IdType], IdType: BaseColumnType](baseService: EntityService, controllerComponents: ControllerComponents)(implicit val entityFormat: Format[EntityItem], implicit val idFormat: Format[IdType], implicit val ex: ExecutionContext) extends BaseController {
 
   def create: Action[JsValue] = Action.async(parse.json) {

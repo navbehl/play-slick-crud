@@ -1,29 +1,27 @@
 name := """play-slick-crud"""
 organization := "com.n2tech.mtrakr"
 
-version := "1.0-SNAPSHOT"
+version := "1.0.1"
 
 lazy val root = (project in file(".")).enablePlugins(PlayScala)
 
-scalaVersion := "2.12.3"
+scalaVersion := "2.12.5"
 
-  val slickVersion = "3.0.1"
-  val silhouetteVersion = "5.0.0"
-  val postgres = "42.1.4"
-  val ficus = "1.4.2"
-  val playVersion = "2.6.3"
+resolvers += Resolver.jcenterRepo
+
+resolvers += "Sonatype snapshots" at "https://oss.sonatype.org/content/repositories/snapshots/"
+
+  val slickVersion = "3.0.3"
+  val silhouetteVersion = "5.0.3"
+  val postgres = "42.2.2"
+  val ficus = "1.4.3"
+  val playVersion = "2.6.7"
+  val guiceVersion = "4.2.0"
 
   val devDependencies = Seq(
     "com.iheart" %% "ficus" % ficus,
-    "net.codingwell" %% "scala-guice" % "4.1.0",
+    "net.codingwell" %% "scala-guice" % guiceVersion,
     "com.typesafe.play" %% "play-json" % playVersion
-  )
-
-  val securityDependencies = Seq(
-    "com.mohiva" %% "play-silhouette" % silhouetteVersion,
-    "com.mohiva" %% "play-silhouette-persistence" % silhouetteVersion,
-    "com.mohiva" %% "play-silhouette-password-bcrypt" % silhouetteVersion,
-    "com.mohiva" %% "play-silhouette-crypto-jca" % silhouetteVersion
   )
 
   val databaseDependencies = Seq(
@@ -40,7 +38,6 @@ scalaVersion := "2.12.3"
 libraryDependencies += guice
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "3.1.2" % Test
 libraryDependencies ++= devDependencies
-libraryDependencies ++= securityDependencies
 libraryDependencies ++= databaseDependencies
 libraryDependencies ++= testDependencies
 // Adds additional packages into Twirl

@@ -7,6 +7,9 @@ import slick.jdbc.PostgresProfile.api._
 
 import scala.concurrent.Future
 
+/**
+  Base Table
+  * */
 abstract class BaseTable[EntityItem <: BaseConfig[IdType], IdType: BaseColumnType](tag: Tag, name: String)
   extends Table[EntityItem](tag, name) with IdentifiableTable[IdType]
 
